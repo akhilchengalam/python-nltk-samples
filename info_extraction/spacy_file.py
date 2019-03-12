@@ -5,8 +5,6 @@ import en_core_web_sm
 
 
 nlp = en_core_web_sm.load()
-# import pdb
-# pdb.set_trace()
 f = open('processed-image.txt', 'r')
 text = f.read().replace('\n\n', '').replace('\n', ',')
 article = nlp(text)
