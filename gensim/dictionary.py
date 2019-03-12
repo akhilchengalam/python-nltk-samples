@@ -21,15 +21,15 @@ tokenized_list = [simple_preprocess(doc) for doc in my_docs]
 
 # Create the Corpus
 mydict = corpora.Dictionary()
-mycorpus = [mydict.doc2bow(doc, allow_update=True) for doc in tokenized_list]
+mycorpus = [dictionary.doc2bow(doc, allow_update=True) for doc in tokenized_list]
 print('\n\n\n\t\t\t\t###########CORPUS###########\n')
 print(mycorpus)
 
-word_counts = [[(mydict[id], count) for id, count in line] for line in mycorpus]
+word_counts = [[(dictionary[id], count) for id, count in line] for line in mycorpus]
 print('\n\n\n\n\t\t\t\t###########WORD COUNT###########\n')
 print(word_counts)
 
-dictionary.save('mydict.dict')  # save dict to disk
+dictionary.save('dictionary.dict')  # save dict to disk
 corpora.MmCorpus.serialize('bow_corpus.mm', mycorpus)  # save corpus to disk
 
 # Create the TF-IDF model
@@ -38,4 +38,4 @@ tfidf = models.TfidfModel(mycorpus, smartirs='ntc')
 # Show the TF-IDF weights
 print('\n\n\n\n\t\t\t\t###########TF-IDF WEIGHTS###########\n')
 for doc in tfidf[mycorpus]:
-    print([[mydict[id], np.around(freq, decimals=2)] for id, freq in doc])
+    print([[dictionary[id], np.around(freq, decimals=2)] for id, freq in doc])
