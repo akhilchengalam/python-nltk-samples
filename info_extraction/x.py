@@ -15,8 +15,6 @@ def url_to_string(url):
     for script in soup(["script", "style", 'aside']):
         script.extract()
     return " ".join(re.split(r'[\n\t]+', soup.get_text()))
-# import pdb
-# pdb.set_trace()   
 ny_bb = url_to_string('https://www.nytimes.com/2018/08/13/us/politics/peter-strzok-fired-fbi.html?hp&action=click&pgtype=Homepage&clickSource=story-heading&module=first-column-region&region=top-news&WT.nav=top-news')
 article = nlp(ny_bb)
 len(article.ents)

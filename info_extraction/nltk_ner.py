@@ -14,9 +14,6 @@ contentArray =['Mohanlal made his acting debut as a teenager in the Malayalam fi
                'In September 2013, the direct-broadcast satellite television provider Tata Sky announced Mohanlal as its brand endorser for its Kerala market'
               ]
 
-
-
-##let the fun begin!##
 def processLanguage():
     try:
         for item in contentArray:
